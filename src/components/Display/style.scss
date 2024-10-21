@@ -1,0 +1,28 @@
+.DisplayContainer {
+  background-color: rgba(255, 255, 255, 0.12);
+  width: 50vw;
+  height: 35vh;
+  border-radius: 10px;
+
+  #TimerContainer {
+
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h1 {
+      color: white;
+      font-size: 150px;
+      font-family: Arial;
+    }
+  }
+
+  #ButtonsSection {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 15vh;
+  }
+}
