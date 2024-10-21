@@ -9,6 +9,7 @@ const Tasks = () => {
     const Task =  []
     const [ CreateTaskState, SetState ] = useState(false)
 
+
     const changeCreateState = () => {
         console.log(!CreateTaskState)
         SetState(!CreateTaskState)
@@ -24,7 +25,7 @@ const Tasks = () => {
                 <div id={'Line'}></div>
                 { CreateTaskState ? (
                     <div>
-                        <CreateTask />
+                        <CreateTask Setter={SetState} />
                     </div>
                 ) : Task.length > 0 ?
                         <div>teste</div>
@@ -36,6 +37,7 @@ const Tasks = () => {
                             </div>
                         </div>
                 }
+
             </div>
          </div>
     )
