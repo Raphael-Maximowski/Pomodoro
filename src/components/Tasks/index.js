@@ -11,7 +11,6 @@ const Tasks = () => {
     const [ CreateTaskState, SetCreateTaskState ] = useState(false)
 
     const handleCreateState = () => {
-        console.log(CreateTaskState)
         SetCreateTaskState(!CreateTaskState)
     }
 

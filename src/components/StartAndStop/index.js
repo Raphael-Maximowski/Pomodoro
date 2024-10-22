@@ -1,10 +1,15 @@
 import './style.scss'
 
-const StartAndStop = () => {
+const StartAndStop = ( { SetTimer,  Color } ) => {
+
+    const ChangeTimerState = (value) => {
+        SetTimer(value)
+    }
+
     return (
         <div className={'StartAndStopBody'}>
-            <button>Start</button>
-            <button>Stop</button>
+            <button style={{ color: Color }} onClick={() => ChangeTimerState(true)}>Start</button>
+            <button style={{ color: Color }} onClick={() => ChangeTimerState(false)}>Stop</button>
         </div>
     )
 }

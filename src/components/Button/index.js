@@ -1,8 +1,13 @@
 import './style.scss'
 
-const Button = ( { title }) => {
+const Button = ( { title, SetType, Color }) => {
+
+    const handleClick = () => {
+        SetType(title)
+    }
+
     return (
-        <button className={'DisplayButton'}>
+        <button style={{ color: Color }} onClick={handleClick} className={'DisplayButton'}>
             { title }
         </button>
     )

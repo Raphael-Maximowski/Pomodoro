@@ -1,6 +1,5 @@
 .DisplayButton {
   border: 0px;
-  color: #BA4949;
   background-color: rgba(255, 255, 255, 0.29);
   height: 40px;
   padding: 0vh 1.5vw;
@@ -8,9 +7,4 @@
   font-weight: bold;
   font-size: clamp(11px, 2vw ,20px);
   cursor: pointer;
-}
-
-.DisplayButton:hover {
-  background-color: #BA4949;
-  color: white;;
 }
