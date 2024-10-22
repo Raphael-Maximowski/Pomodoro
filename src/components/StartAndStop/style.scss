@@ -1,0 +1,21 @@
+.StartAndStopBody {
+  min-width: 270px;
+  width: 50vw;
+  height: 10vh;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  button {
+    cursor: pointer;
+    border: 0px;
+    color: #BA4949;
+    background-color: whitesmoke;
+    height: 4vh;
+    padding: 0vh 45px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: clamp(11px, 3vw ,20px);
+  }
+}

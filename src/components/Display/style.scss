@@ -1,28 +1,29 @@
 .DisplayContainer {
-  background-color: rgba(255, 255, 255, 0.12);
+  background-color: rgba(255, 255, 255, 0.29);
+  min-width: 270px;
   width: 50vw;
-  height: 35vh;
+  height: 30vh;
   border-radius: 10px;
 
-  #TimerContainer {
-
+  .DisplayHeader {
     height: 20vh;
+
     display: flex;
     align-items: center;
     justify-content: center;
 
     h1 {
-      color: white;
-      font-size: 150px;
       font-family: Arial;
+      font-size: clamp(50px, 15vw ,150px);
+      color: whitesmoke;
     }
   }
 
-  #ButtonsSection {
+  .DisplayBody {
 
+    height: 10vh;
     display: flex;
-    align-items: center;
     justify-content: space-around;
-    height: 15vh;
+    align-items: center;
   }
 }

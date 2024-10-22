@@ -1,22 +1,18 @@
 import './style.scss'
 import Button from "../Button";
 
-const Display = () => {
+const ButtonTitle = ['Pomodoro', 'Short Break', 'Long Break']
 
-    const ButtonsType = ['Pomodoro', 'ShortBreak', 'LongBreak'];
-
+const Display =  () => {
     return (
         <div className={'DisplayContainer'}>
-            <div id={'TimerContainer'}>
+            <div className={'DisplayHeader'}>
                 <h1>25:00</h1>
             </div>
-            <div id={'ButtonsSection'}>
-                {ButtonsType.map((button, index) => (
-                    <Button
-                        key={index}
-                        type={button}
-                    />
-                ))}
+            <div className={'DisplayBody'}>
+                { ButtonTitle.map((title, index) => {
+                    return ( <Button key={index} title={title} /> )
+                }) }
             </div>
         </div>
     )

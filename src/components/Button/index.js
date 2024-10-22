@@ -1,10 +1,10 @@
 import './style.scss'
 
-const Button = ({ type }) => {
+const Button = ( { title }) => {
     return (
-        <div>
-            <button> {type} </button>
-        </div>
+        <button className={'DisplayButton'}>
+            { title }
+        </button>
     )
 }
 

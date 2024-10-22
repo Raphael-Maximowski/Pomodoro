@@ -6,15 +6,23 @@ main {
 
     #DisplayContainer {
 
-        height: 50vh;
+        height: 45vh;
         width: 100vw;
         display: flex;
         align-items: center;
         justify-content: center;
     }
 
+    #StartStopContainer {
+        height: 10vh;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
     #TasksContainer {
-        height: 50vh;
+        height: 45vh;
         display: flex;
         align-items: center;
         justify-content: center;

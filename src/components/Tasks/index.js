@@ -1,45 +1,49 @@
 import './style.scss'
-import plusIcon from '../../assets/plus.png';
-import folder from '../../assets/folder.png'
+import CreateTask from '../../assets/plus.png'
+import Folder from '../../assets/folder.png'
 import {useState} from "react";
-import CreateTask from "../CreateTask";
+import CreateTaskForm from "../CreateTaskForm";
 
 const Tasks = () => {
 
-    const Task =  []
-    const [ CreateTaskState, SetState ] = useState(false)
+    const Tasks = []
 
+    const [ CreateTaskState, SetCreateTaskState ] = useState(false)
 
-    const changeCreateState = () => {
-        console.log(!CreateTaskState)
-        SetState(!CreateTaskState)
+    const handleCreateState = () => {
+        console.log(CreateTaskState)
+        SetCreateTaskState(!CreateTaskState)
     }
 
     return (
-         <div className={'TasksContainer'}>
-            <div id={'TasksTitle'}>
-                <h2>Tasks Section</h2>
-                <img onClick={changeCreateState} src={plusIcon} />
+        <div className={'TasksContainer'}>
+            <div className={'TasksHeader'}>
+                <h2> Tasks </h2>
+                <img onClick={handleCreateState} src={CreateTask} />
             </div>
-            <div id={'TasksBody'}>
-                <div id={'Line'}></div>
-                { CreateTaskState ? (
-                    <div>
-                        <CreateTask Setter={SetState} />
-                    </div>
-                ) : Task.length > 0 ?
-                        <div>teste</div>
-                        :  <div id={'emptyContainer'}>
-                            <img src={folder} />
-                            <div>
-                                <h3>No Task</h3>
-                                <h3>was Found</h3>
-                            </div>
-                        </div>
-                }
 
+            <div className={'TasksBody'}>
+                <div className={'Line'}></div>
+
+                { CreateTaskState ?
+                    <div>
+                        <CreateTaskForm ChangeCreateState={SetCreateTaskState} />
+                    </div> :
+                    Tasks.length > 0 ?
+                            <div>
+                                teste
+                            </div> :
+                            <div className={'EmptyContainer'}>
+                                <img src={Folder} />
+                                <div>
+                                    <p>No Tasks</p>
+                                    <p>Were Found</p>
+                                </div>
+
+                            </div>
+                }
             </div>
-         </div>
+        </div>
     )
 }
 
