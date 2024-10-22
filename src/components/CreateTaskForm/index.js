@@ -21,7 +21,6 @@ const CreateTaskForm = ( { ChangeCreateState } ) => {
         }
 
         handleCick()
-        console.log(Task)
     }
 
     const handleCick = () => {

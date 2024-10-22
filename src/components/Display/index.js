@@ -9,7 +9,6 @@ const Display =  ( { Minutes, Seconds, TypeSetter, Color } ) => {
     const [ type, SetType ] = useState()
 
     useEffect(() => {
-        console.log('TypeReceived: ', type)
         TypeSetter(type)
     }, [type])
 

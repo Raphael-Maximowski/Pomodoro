@@ -23,12 +23,10 @@ const Pomodoro = () => {
 
     const ActiveTimer = (value) => {
         SetTimerState(value)
-        console.log(value)
     }
 
     useEffect(() => {
         if (TimerState) {
-            console.log('Loop Init')
              const Interval = setInterval(() => {
                  SetSeconds(( prevSeconds ) => {
                      if ( prevSeconds === 0 ) {
@@ -54,7 +52,7 @@ const Pomodoro = () => {
 
             return () => clearInterval(Interval);
         }
-    }, [ TimerState ]);
+    }, [ TimerState, Minutes, Seconds ]);
 
     useEffect(() => {
         if (initialState === 'Pomodoro') {
