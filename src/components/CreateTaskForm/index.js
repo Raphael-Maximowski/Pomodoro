@@ -1,7 +1,12 @@
 import './style.scss'
 import {useState} from "react";
+import { useDispatch } from 'react-redux';
+import { addTask } from "../../store/reducers/tasks";
+
 
 const CreateTaskForm = ( { ChangeCreateState } ) => {
+
+    const dispatch = useDispatch()
 
     const [ Name, SetName ] = useState('')
     const [ Description, SetDescription ] = useState('')
@@ -19,6 +24,8 @@ const CreateTaskForm = ( { ChangeCreateState } ) => {
             name: Name,
             description: Description
         }
+
+        dispatch(addTask(Task))
 
         handleCick()
     }

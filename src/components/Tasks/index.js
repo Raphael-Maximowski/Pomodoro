@@ -1,18 +1,25 @@
 import './style.scss'
 import CreateTask from '../../assets/plus.png'
 import Folder from '../../assets/folder.png'
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import CreateTaskForm from "../CreateTaskForm";
+import { useSelector } from "react-redux";
 
 const Tasks = () => {
 
     const Tasks = []
+
+    const tasksFromState = useSelector((state) => state.tasks.tasks);
 
     const [ CreateTaskState, SetCreateTaskState ] = useState(false)
 
     const handleCreateState = () => {
         SetCreateTaskState(!CreateTaskState)
     }
+
+    useEffect(() => {
+        console.log(tasksFromState);
+    }, [tasksFromState]);
 
     return (
         <div className={'TasksContainer'}>
@@ -28,9 +35,11 @@ const Tasks = () => {
                     <div>
                         <CreateTaskForm ChangeCreateState={SetCreateTaskState} />
                     </div> :
-                    Tasks.length > 0 ?
+                    tasksFromState.length > 0 ?
                             <div>
-                                teste
+                                { tasksFromState.map((task, index) => {
+                                    return <div>Em desenvolvimento</div>
+                                }) }
                             </div> :
                             <div className={'EmptyContainer'}>
                                 <img src={Folder} />

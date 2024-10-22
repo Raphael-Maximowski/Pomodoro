@@ -1,12 +1,12 @@
 import {configureStore} from "@reduxjs/toolkit";
 import pomodoroStateSlice from "./reducers/pomodoroState";
 import tasks from "./reducers/tasks";
+import tasksReducer from "./reducers/tasks";
 
-const Store = configureStore({
+const store = configureStore({
     reducer: {
-        pomodoroState : pomodoroStateSlice,
-        tasks : tasks
+        tasks: tasksReducer // Tasks reducer
     }
 })
 
-export default Store
+export default store
