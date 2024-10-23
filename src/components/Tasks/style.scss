@@ -34,6 +34,41 @@
       height: 3px;
       background-color: white;
     }
+
+    .TaskContainer {
+      background-color: rgba(255, 255, 255, 0.21);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 5vh;
+
+      .ImageContainer {
+        display: flex;
+        align-items: center;
+
+        img {
+          min-width: 15px;
+          max-width: 25px;
+          width: 3vw;
+          margin-right: 20px;
+          cursor: pointer;
+        }
+
+        .CloseTask {
+          min-width: 12px;
+          width: 2.5vw;
+          max-width: 20px;
+        }
+      }
+
+
+      p {
+        margin-left: 20px;
+        color: white;
+        font-family: Arial;
+        font-size: clamp(13px, 2.8vw ,18px);
+      }
+    }
   }
 
   .EmptyContainer {

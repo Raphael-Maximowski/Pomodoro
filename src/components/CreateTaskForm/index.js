@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { addTask } from "../../store/reducers/tasks";
 
 
-const CreateTaskForm = ( { ChangeCreateState } ) => {
+const CreateTaskForm = ( { ChangeCreateState, Color } ) => {
 
     const dispatch = useDispatch()
 
@@ -61,8 +61,8 @@ const CreateTaskForm = ( { ChangeCreateState } ) => {
                 </form>
             </div>
             <div className={'CreateTask'}>
-                <button onClick={CreateTask}>Create</button>
-                <button onClick={handleCick} className={'CancelButton'}>Cancel</button>
+                <button style={{ color: Color }} onClick={CreateTask}>Create</button>
+                <button style={{ backgroundColor: Color }} onClick={handleCick} className={'CancelButton'}>Cancel</button>
             </div>
         </>
     )

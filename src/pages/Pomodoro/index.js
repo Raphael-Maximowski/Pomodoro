@@ -52,7 +52,7 @@ const Pomodoro = () => {
 
             return () => clearInterval(Interval);
         }
-    }, [ TimerState, Minutes, Seconds ]);
+    }, [ TimerState ]);
 
     useEffect(() => {
         if (initialState === 'Pomodoro') {
@@ -79,7 +79,7 @@ const Pomodoro = () => {
                 <StartAndStop Color={Color} SetTimer={ActiveTimer} TimerValue={TimerState}  />
             </section>
             <section id={'TasksContainer'}>
-                <Tasks/>
+                <Tasks Color={Color} />
             </section>
         </main>
     )
