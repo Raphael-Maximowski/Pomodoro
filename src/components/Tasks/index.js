@@ -9,8 +9,12 @@ import Trash from '../../assets/Trash.png'
 import Pomodoro from '../../assets/Pomodoro.png'
 import ShortBreak from '../../assets/ShortBreak.png'
 import LongBreak from '../../assets/LongBreak.png'
+import { useDispatch } from "react-redux";
+import {removeTask, updateTask} from "../../store/reducers/tasks";
 
 const Tasks = ( { Color } ) => {
+
+    const dispatch = useDispatch()
 
     const tasksFromState = useSelector((state) => state.tasks.tasks);
 
@@ -20,6 +24,15 @@ const Tasks = ( { Color } ) => {
 
     const handleCreateState = () => {
         SetCreateTaskState(!CreateTaskState)
+    }
+
+    const deleteTask = (task) => {
+        dispatch(removeTask(task))
+    }
+
+    const SetTaskAsCompleted = (task) => {
+        dispatch(updateTask(task))
+        console.log('Activated in Script')
     }
 
     useEffect(() => {
@@ -48,10 +61,10 @@ const Tasks = ( { Color } ) => {
 
                 { CreateTaskState ?
                     <div>
-                        <CreateTaskForm Color={Color} ChangeCreateState={SetCreateTaskState} />
+                        <CreateTaskForm TasksContent={tasksFromState} Color={Color} ChangeCreateState={SetCreateTaskState} />
                     </div> :
                     tasksFromState.length > 0 ?
-                            <div>
+                            <div className={'TasksWrapper'}>
                                 { tasksFromState.map((task, index) => {
                                     return <div>
                                         <div className={'TaskContainer'}>
@@ -59,8 +72,16 @@ const Tasks = ( { Color } ) => {
                                                 <p>{task.name}</p>
                                             </div>
                                             <div className={'ImageContainer'}>
-                                                <img src={ConfirmTaskImage} />
-                                                <img className={'CloseTask'} src={CloseTask} />
+                                                {
+                                                    task.completed ? <img  onClick={() => deleteTask(task)} src={Trash}/>
+                                                        :
+                                                        <>
+                                                            <img onClick={() => SetTaskAsCompleted(task)}
+                                                                 src={ConfirmTaskImage}/>
+                                                            <img onClick={() => deleteTask(task)}
+                                                                 className={'CloseTask'} src={CloseTask}/>
+                                                        </>
+                                                }
                                             </div>
                                         </div>
                                     </div>

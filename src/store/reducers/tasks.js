@@ -8,13 +8,26 @@ const TasksSlice = createSlice({
     initialState,
     reducers: {
         addTask : ( state, action ) => {
-            console.log('Actual State: ', state)
-            console.log('Task Received: ', action.payload)
             state.tasks.push(action.payload)
+        },
+
+        removeTask: ( state, action ) => {
+            const task = action.payload;
+            const index = state.tasks.findIndex(StateTask => StateTask.id === task.id);
+            state.tasks.splice(index, 1);
+        },
+
+        updateTask : (state, action) => {
+            const task = action.payload;
+            const index = state.tasks.findIndex(StateTask => StateTask.id === task.id);
+            state.tasks[index] = {
+                ...state.tasks[index],
+                completed: true
+            };
         }
     }
 })
 
-export const { addTask } = TasksSlice.actions
+export const { addTask, removeTask, updateTask } = TasksSlice.actions
 
 export default TasksSlice.reducer

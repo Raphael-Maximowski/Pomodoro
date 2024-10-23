@@ -30,6 +30,12 @@
   .TasksBody {
     height: 32vh;
 
+    .TasksWrapper {
+
+      overflow-y: auto;
+      height: 32vh;
+    }
+
     .Line {
       height: 3px;
       background-color: white;

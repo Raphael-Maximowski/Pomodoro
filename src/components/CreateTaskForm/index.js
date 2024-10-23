@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { addTask } from "../../store/reducers/tasks";
 
 
-const CreateTaskForm = ( { ChangeCreateState, Color } ) => {
+const CreateTaskForm = ( { ChangeCreateState, Color, TasksContent } ) => {
 
     const dispatch = useDispatch()
 
@@ -20,10 +20,17 @@ const CreateTaskForm = ( { ChangeCreateState, Color } ) => {
     }
 
     const CreateTask = () => {
+
+        const id = TasksContent.length + 1
+
         const Task = {
+            id: id,
             name: Name,
-            description: Description
+            description: Description,
+            completed: false
         }
+
+        console.log(Task)
 
         dispatch(addTask(Task))
 
