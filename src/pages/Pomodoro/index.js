@@ -27,12 +27,9 @@ const Pomodoro = () => {
 
     useEffect(() => {
         if (TimerState) {
-            console.log('Entrou no If');
             const Interval = setInterval(() => {
-                console.log('Entrou no Intervalo');
                 SetSeconds((prevSeconds) => {
 
-                    console.log('Ultimos Segundos', prevSeconds);
                     if (prevSeconds === 0) {
                         SetSeconds(60);
                         SetMinutes((prevMinutes) => {
@@ -56,8 +53,6 @@ const Pomodoro = () => {
             }, 1000);
             return () => clearInterval(Interval);
         }
-
-        console.log('time stop');
     }, [ TimerState ]);
 
     useEffect(() => {

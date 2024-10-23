@@ -32,12 +32,7 @@ const Tasks = ( { Color } ) => {
 
     const SetTaskAsCompleted = (task) => {
         dispatch(updateTask(task))
-        console.log('Activated in Script')
     }
-
-    useEffect(() => {
-        console.log(tasksFromState);
-    }, [tasksFromState]);
 
     useEffect(() => {
         if (Color === '#BA4949') {

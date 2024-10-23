@@ -30,8 +30,6 @@ const CreateTaskForm = ( { ChangeCreateState, Color, TasksContent } ) => {
             completed: false
         }
 
-        console.log(Task)
-
         dispatch(addTask(Task))
 
         handleCick()
