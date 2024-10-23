@@ -12,7 +12,7 @@ const Pomodoro = () => {
 
     const Sequency = ['Short Break', 'Pomodoro', 'Short Break', 'Pomodoro', 'Short Break', 'Pomodoro', 'Long Break', ]
 
-    const [ SequencyCounter, SetSequency ] = useState(0)
+    const [ SequencyCounter, SetSequency ] = useState(6)
 
     const [ initialState, SetInitialState ] = useState('Pomodoro')
 
@@ -27,45 +27,50 @@ const Pomodoro = () => {
 
     useEffect(() => {
         if (TimerState) {
-             const Interval = setInterval(() => {
-                 SetSeconds(( prevSeconds ) => {
-                     if ( prevSeconds === 0 ) {
-                         SetMinutes((prevMinutes) => {
-                             if ( prevMinutes === 0 ) {
-                                 SetSequency( (prevSequency) => {
-                                     SetInitialState(Sequency[prevSequency])
-                                     if (prevSequency === 6) {
-                                         SetSequency(0)
-                                     } else {
-                                         SetSequency( prevSequency + 1 )
-                                     }
-                                 })
-                             } else {
-                                 SetMinutes(prevMinutes - 1)
-                                 SetSeconds(prevSeconds + 60)
-                             }
-                         })
-                     } else { SetSeconds(prevSeconds - 1) }
-
-                 })
-            }, 1000)
-
+            console.log('Entrou no If');
+            const Interval = setInterval(() => {
+                console.log('Entrou no Intervalo');
+                SetSeconds((prevSeconds) => {
+                    console.log('Ultimos Segundos', prevSeconds);
+                    if (prevSeconds === 0) {
+                        SetSeconds(60);
+                        SetMinutes((prevMinutes) => {
+                            if (prevMinutes === 0) {
+                                SetSequency((prevSequency) => {
+                                    if (prevSequency === 7) {
+                                        SetInitialState('Pomodoro');
+                                        return 0;
+                                    }
+                                    SetInitialState(Sequency[prevSequency]);
+                                    return prevSequency + 1;
+                                });
+                            } else {
+                                return prevMinutes - 1;
+                            }
+                        });
+                        return;
+                    }
+                    return prevSeconds - 1;
+                });
+            }, 1000);
             return () => clearInterval(Interval);
         }
+
+        console.log('time stop');
     }, [ TimerState ]);
 
     useEffect(() => {
         if (initialState === 'Pomodoro') {
-            SetMinutes(25)
-            SetSeconds(0)
+            SetMinutes(0)
+            SetSeconds(10)
             SetColor(Colors[0])
         } else if (initialState === 'Short Break') {
-            SetMinutes(5)
-            SetSeconds(0)
+            SetMinutes(0)
+            SetSeconds(10)
             SetColor(Colors[1])
         } else if (initialState === 'Long Break') {
-            SetMinutes(15)
-            SetSeconds(0)
+            SetMinutes(0)
+            SetSeconds(10)
             SetColor(Colors[2])
         }
     }, [initialState])

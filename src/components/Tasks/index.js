@@ -66,7 +66,7 @@ const Tasks = ( { Color } ) => {
                     tasksFromState.length > 0 ?
                             <div className={'TasksWrapper'}>
                                 { tasksFromState.map((task, index) => {
-                                    return <div>
+                                    return <div key={index}>
                                         <div className={'TaskContainer'}>
                                             <div>
                                                 <p>{task.name}</p>
