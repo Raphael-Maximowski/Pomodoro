@@ -12,7 +12,7 @@ const Pomodoro = () => {
 
     const Sequency = ['Short Break', 'Pomodoro', 'Short Break', 'Pomodoro', 'Short Break', 'Pomodoro', 'Long Break', ]
 
-    const [ SequencyCounter, SetSequency ] = useState(6)
+    const [ SequencyCounter, SetSequency ] = useState(0)
 
     const [ initialState, SetInitialState ] = useState('Pomodoro')
 
@@ -31,6 +31,7 @@ const Pomodoro = () => {
             const Interval = setInterval(() => {
                 console.log('Entrou no Intervalo');
                 SetSeconds((prevSeconds) => {
+
                     console.log('Ultimos Segundos', prevSeconds);
                     if (prevSeconds === 0) {
                         SetSeconds(60);
@@ -61,16 +62,16 @@ const Pomodoro = () => {
 
     useEffect(() => {
         if (initialState === 'Pomodoro') {
-            SetMinutes(0)
-            SetSeconds(10)
+            SetMinutes(24)
+            SetSeconds(59)
             SetColor(Colors[0])
         } else if (initialState === 'Short Break') {
-            SetMinutes(0)
-            SetSeconds(10)
+            SetMinutes(4)
+            SetSeconds(59)
             SetColor(Colors[1])
         } else if (initialState === 'Long Break') {
-            SetMinutes(0)
-            SetSeconds(10)
+            SetMinutes(14)
+            SetSeconds(59)
             SetColor(Colors[2])
         }
     }, [initialState])
